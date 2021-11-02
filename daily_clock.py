@@ -61,7 +61,7 @@ def daily_health_report():
         try:
             # 获取登陆界面，并为网页预留 2s 加载时间
             options = visual_free_interface()
-            bro = webdriver.Chrome(executable_path='/usr/bin/chromedriver', options=options)
+            bro = webdriver.Chrome(executable_path='./chromedriver', options=options)
             # bro = webdriver.Chrome(executable_path='/usr/bin/chromedriver')
             bro.get('https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu')
             sleep(2)
@@ -91,7 +91,7 @@ def daily_health_report():
             sleep(5)
 
             # 判断是否已打卡
-            confirm = bro.find_element_by_xpath('//div[@id="select_1582538939790"]/div')
+            confirm = bro.find_element_by_xpath('//*[@id="select_1582538939790"]/div')
             if confirm.text[0] == "是":
                 print("************ 已打卡 ************")
                 content = user_names[i]+" 已健康打卡 !"
@@ -102,8 +102,10 @@ def daily_health_report():
             # 打卡操作
             print('************ ', user_names[i], '正在打卡 ************')
             confirm.click()
+            sleep(10)
             s = bro.find_element_by_xpath('//span[contains(text(),"是 Yes")]')
             s.click()
+            sleep(2)
             save_button = bro.find_element_by_class_name("form-save")
             save_button.click()
             sleep(2)
