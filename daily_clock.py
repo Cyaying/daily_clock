@@ -61,8 +61,7 @@ def daily_health_report():
         try:
             # 获取登陆界面，并为网页预留 2s 加载时间
             options = visual_free_interface()
-            bro = webdriver.Chrome(executable_path='./chromedriver', options=options)
-            # bro = webdriver.Chrome(executable_path='/usr/bin/chromedriver')
+            bro = webdriver.Chrome(executable_path='/usr/bin/chromedriver', options=options)
             bro.get('https://ids.xmu.edu.cn/authserver/login?service=https://xmuxg.xmu.edu.cn/login/cas/xmu')
             sleep(2)
 
