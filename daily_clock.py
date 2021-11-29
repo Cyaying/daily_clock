@@ -10,9 +10,9 @@ from selenium.webdriver.chrome.options import Options
 用户的基本信息:账号、密码、qq邮箱、
 打卡情况：成功、异常
 """
-user_names = ['22920192204127']
-pass_words = ['A23187.z']
-user_mails = ['2638958589@qq.com']
+user_names = ['********']
+pass_words = ['********']
+user_mails = ['********']
 successes = [0] * len(user_names)
 fails = [1] * len(user_names)
 
